@@ -5,6 +5,7 @@ import Landpage from './pages/Landpage'
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Profile from './pages/Profile';
+import Footer from './components/Footer';
 function App() {
   return (
     <div className="App">
@@ -15,6 +16,7 @@ function App() {
         <Route path='register' element={<Register/>} />
         <Route path='profile' element={<Profile/>} />
       </Routes>
+      <Footer/>
     </div>
   );
 }

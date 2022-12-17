@@ -3,7 +3,8 @@ import React from 'react'
 function Landpage() {
   return (
     <div>
-      <p>home page</p>
+      <img src="music.jpg" alt="Girl in a jacket" />
+
     </div>
   )
 }

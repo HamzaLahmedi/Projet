@@ -1,12 +1,13 @@
 const mongoose=require('mongoose')
 
 const publicationschema= new mongoose.Schema({
-   type:{
+   title:{
     type:String,
-    required:true
-   },
+    required:true,
+    unique:true
+},
    duree:{
-    type:Date,
+    type:String,
     required:true
    },
    prix:{

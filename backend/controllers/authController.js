@@ -33,7 +33,7 @@ exports.signIn=async(req,res)=>{
     const {email,password}=req.body
     try {
         const user=await User.findOne({email})
-        if(!user){
+        if(user){
             return res.status(400).json({errors:[{msg:"bad cridentials"}]})
         }
         const isMatch=await bcrypt.compare(password,user.password)
@@ -64,3 +64,43 @@ exports.current=async(req,res)=>{
   
     }
 }
+exports.allUsers=async(req,res)=>{
+    try {
+        const users=await User.find()
+        res.status(200).send({msg:"all users",users})
+    } catch (error) {
+        res.status(500).send("server error");
+    }
+    }
+
+    exports.deleteUser=async(req,res)=>{
+        const {id}=req.params
+        try {
+            await User.findByIdAndDelete(id)
+            res.status(200).send("user deleted")
+        } catch (error) {
+            res.status(500).send("server error");
+        }
+    }
+
+    exports.updateUser=async(req,res)=>{
+        const {id}=req.params
+        try {
+            const updateUser=await User.findByIdAndUpdate(id,{$set:{...req.body}},{new:true});
+            res.status(200).send({msg:"user updated",updateUser})
+        } catch (error) {
+            res.status(500).send("server error");
+        }
+    }
+
+    exports.getOneUser=async(req,res)=>{
+        const {id}=req.params
+        try {
+            const user = await User.findById(id)
+            res.status(200).send(user)
+        } catch (error) {
+            res.status(500).send("server error");
+        }
+    }
+
+
