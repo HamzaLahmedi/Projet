@@ -15,8 +15,8 @@ function NAvBar() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/" className='nav'>Home</Nav.Link>
-            <Nav.Link as={Link} href="Profile" className='nav'>Profile</Nav.Link>
-            <Nav.Link as={Link} href="Contact" className='nav'>Contact</Nav.Link>
+            <Nav.Link as={Link} to="/Profile" className='nav'>Profile</Nav.Link>
+            <Nav.Link as={Link} to="/Contact" className='nav'>Contact</Nav.Link>
           </Nav>
           <Nav style={{marginLeft:"50px"}}>
             <Link to='./login' >

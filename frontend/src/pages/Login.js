@@ -10,10 +10,10 @@ function Login() {
   
   <form id="login-form">
     <p>
-    <input type="text" id="username" name="username" placeholder="Username" required/><i className="validation"><span></span><span></span></i>
+    <input type="text" id="username" name="email" placeholder="Email Address" required/><i className="validation"><span></span><span></span></i>
     </p>
     <p>
-    <input type="email" id="email" name="email" placeholder="Email Address" required/><i className="validation"><span></span><span></span></i>
+    <input type="email" id="email" name="password" placeholder="password" required/><i className="validation"><span></span><span></span></i>
     </p>
     <p>
     <input type="submit" id="login" value="Login"/>
