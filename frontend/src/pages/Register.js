@@ -1,39 +1,86 @@
-import React from 'react'
+import { useState } from 'react';
+import { useDispatch} from 'react-redux'
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import { userRegister } from '../redux/actions/authActions';
+import Container from 'react-bootstrap/esm/Container';
+import { useNavigate } from 'react-router-dom';
 
 function Register() {
-  return (
-    <div className="container">
-  <form id="form" className="form">
-    <h2>Register With Us</h2>
-    <div className="form-control">
-      <label htmlFor="username">Username</label>
-      <input type="text" id="username" placeholder="Enter Username" />
-      <small>Error Message</small>
-    </div>
-    <div className="form-control">
-      <label htmlFor="email">Email</label>
-      <input type="text" id="email" placeholder="Enter email" />
-      <small>Error Message</small>
-    </div>
-    <div className="form-control">
-      <label htmlFor="password">Password</label>
-      <input type="password" id="password" placeholder="Enter password" />
-      <small>Error Message</small>
-    </div>
-    <div className="form-control">
-      <label htmlFor="password2">Confirm Password</label>
-      <input
-        type="password"
-        id="password2"
-        placeholder="Enter password again"
-      />
-      <small>Error Message</small>
-    </div>
-    <button>Submit</button>
-  </form>
-</div>
+  const [data,setData]=useState({name:"",email:"",password:"",description:""});
+  const dispatch=useDispatch();
+  const navigate=useNavigate();
+  //handle change
+  const handleChange=(e)=>{
+    setData({...data,[e.target.name]:e.target.value})
+  }
 
-  )
+  // user register
+const handleSubmit=(e)=>{
+  e.preventDefault();
+  dispatch(userRegister(data,navigate))
+}
+
+
+  return (
+    <Container>
+    <Form  onSubmit={handleSubmit}>
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>User Name</Form.Label>
+        <Form.Control type="text" placeholder="Enter email"  name='name'
+        onChange={handleChange}
+        />
+        
+      </Form.Group>
+
+
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Email address</Form.Label>
+        <Form.Control type="email" placeholder="Enter email" name='email'
+                onChange={handleChange}
+
+        />
+        <Form.Text className="text-muted">
+          We'll never share your email with anyone else.
+        </Form.Text>
+      </Form.Group>
+
+      
+
+
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Label>Password</Form.Label>
+        <Form.Control type="password" placeholder="Password"  name='password'
+                onChange={handleChange}
+
+        />
+      </Form.Group>
+      
+
+      <Form.Group className="mb-3">
+        <Form.Label> select menu</Form.Label>
+        <Form.Select >
+          <option>musician</option>
+          <option>band</option>
+        </Form.Select>
+      </Form.Group>
+      
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Description</Form.Label>
+        <Form.Control type="text" placeholder="description"   name='description'
+                onChange={handleChange}
+
+        />
+        
+      </Form.Group>
+
+
+      <Button variant="primary" type="submit" >
+        Submit
+      </Button>
+    </Form>
+    </Container>
+  );
 }
 
 export default Register;

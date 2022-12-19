@@ -16,7 +16,7 @@ connectDB()
 // middleware
 app.use(express.json())
 
-app.use('/api/auth',authRouter)
+app.use('/auth',authRouter)
 
 app.use('/api/pubRoute',pubRouter)
 
