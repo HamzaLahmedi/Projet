@@ -5,9 +5,8 @@ import Form from 'react-bootstrap/Form';
 import { userRegister } from '../redux/actions/authActions';
 import Container from 'react-bootstrap/esm/Container';
 import { useNavigate } from 'react-router-dom';
-
 function Register() {
-  const [data,setData]=useState({name:"",email:"",password:"",description:""});
+  const [data,setData]=useState({userName:"",email:"",password:"",description:"",role:""});
   const dispatch=useDispatch();
   const navigate=useNavigate();
   //handle change
@@ -27,7 +26,7 @@ const handleSubmit=(e)=>{
     <Form  onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>User Name</Form.Label>
-        <Form.Control type="text" placeholder="Enter email"  name='name'
+        <Form.Control type="text" placeholder="Enter ur name"  name='userName'
         onChange={handleChange}
         />
         
@@ -59,7 +58,8 @@ const handleSubmit=(e)=>{
 
       <Form.Group className="mb-3">
         <Form.Label> select menu</Form.Label>
-        <Form.Select >
+        <Form.Select onChange={handleChange} name="role">
+        <option>select role</option>
           <option>musician</option>
           <option>band</option>
         </Form.Select>
@@ -75,7 +75,7 @@ const handleSubmit=(e)=>{
       </Form.Group>
 
 
-      <Button variant="primary" type="submit" >
+      <Button variant="primary" type="submit">
         Submit
       </Button>
     </Form>

@@ -13,11 +13,9 @@ const userschema= new mongoose.Schema({
     },
     phone:{
         type:Number,
-        required:true
     },
     age:{
         type:Number,
-        required:false
     },
     description:{
         type:String,
@@ -31,8 +29,7 @@ const userschema= new mongoose.Schema({
 
     role:{
         type:String,
-        enum:["musician","band","admin"],
-        default:"musician"
+        required:true
     },
     password:{
         type:String,

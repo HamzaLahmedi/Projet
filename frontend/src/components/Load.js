@@ -1,11 +1,10 @@
-import Spinner from 'react-bootstrap/Spinner';
+import ReactLoading from 'react-loading';
 
-function Load() {
-  return (
-    <Spinner animation="border" role="status">
-      <span className="visually-hidden">Loading...</span>
-    </Spinner>
-  );
-}
+    
+ 
+const Load = ({ type, color }) => ( <div>
+    <ReactLoading type={type} color={color} height={667} width={375} /></div>
+);
+  
 
 export default Load;
