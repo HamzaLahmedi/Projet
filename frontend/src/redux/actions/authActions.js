@@ -19,7 +19,7 @@ export const userRegister=(data,navigate)=>async(dispatch)=>{
 
 // login action
 export const userLogin=(data,navigate)=>async(dispatch)=>{
-    console.log(data)
+    // console.log(data)
     try {
         const res = await axios.post("http://localhost:5000/signin", data);
                 dispatch({

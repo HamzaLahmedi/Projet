@@ -34,7 +34,7 @@ const handleSubmit=(e)=>{
     <p>
     <input type="password" id="email" name="password" placeholder="password" required  onChange={handleChange}/><i className="validation"><span></span><span></span></i>
     </p>
-    <Button>LOGIN</Button>
+    <Button type='submit' >LOGIN</Button>
   </form>
   <div id="create-account-wrap">
     <p>Not a member? <Link to='/register'> Create Account </Link></p>
