@@ -12,7 +12,6 @@ useEffect(()=>{
 console.log(contacts)
   return (
     <div  style={{
-      display:"flex",
       justifyContent:"space-around",
       flexWrap:"wrap",
       width:"90%",

@@ -6,7 +6,7 @@ import { userRegister } from '../redux/actions/authActions';
 import Container from 'react-bootstrap/esm/Container';
 import { useNavigate } from 'react-router-dom';
 function Register() {
-  const [data,setData]=useState({userName:"",email:"",password:"",description:"",role:""});
+  const [data,setData]=useState({userName:"",email:"",password:"",description:"",role:"",phone:"",age:""});
   const dispatch=useDispatch();
   const navigate=useNavigate();
   //handle change
@@ -42,9 +42,24 @@ const handleSubmit=(e)=>{
         <Form.Text className="text-muted">
           We'll never share your email with anyone else.
         </Form.Text>
+
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Label>age</Form.Label>
+        <Form.Control type="text" placeholder="enter your age"  name='age'
+                onChange={handleChange}
+
+        />
       </Form.Group>
 
-      
+
+      <Form.Group>
+      <Form.Label>Phone Number </Form.Label>
+        <Form.Control type="text" placeholder="enter your phone number"  name='phone'
+                onChange={handleChange}
+
+        />
+      </Form.Group>
 
 
       <Form.Group className="mb-3" controlId="formBasicPassword">

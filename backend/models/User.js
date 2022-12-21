@@ -12,10 +12,10 @@ const userschema= new mongoose.Schema({
         unique:true
     },
     phone:{
-        type:Number,
+        type:String,
     },
     age:{
-        type:Number,
+        type:String,
     },
     description:{
         type:String,

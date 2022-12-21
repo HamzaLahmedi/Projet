@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from 'react-bootstrap/esm/Button';
 import { useSelector } from 'react-redux';
 
 function Profile() {
@@ -98,7 +99,10 @@ function Profile() {
                     </a>
                   </li>
                 </ul>
+                
               </div>
+              <Button>Edit</Button>
+                <Button>Delete</Button>
             </div>
           </div>
         </div>
@@ -106,6 +110,7 @@ function Profile() {
     </div>
   </div>
 </div>
+
 
     </div>
      

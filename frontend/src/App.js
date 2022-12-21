@@ -36,7 +36,11 @@ function App() {
       </PrivateRoute>
       } />
         <Route path='login' element={<Login/>} />
-        <Route path='contact' element={<Contact/>} />
+        <Route path='contact' element={
+              <PrivateRoute>
+        <Contact/>
+        </PrivateRoute>
+        } />
         <Route path='register' element={<Register/>} />
 
         <Route path='*' element={<NotFound/>} />
