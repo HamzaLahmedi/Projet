@@ -21,10 +21,15 @@ export const userRegister=(data,navigate)=>async(dispatch)=>{
 export const userLogin=(data,navigate)=>async(dispatch)=>{
     // console.log(data)
     try {
-        const res = await axios.post("http://localhost:5000/signin", data);
-                dispatch({
+        const res = await axios.post("http://localhost:5000/signin", data).then((res)=>
+        dispatch({
             type:LOGIN,payload:res.data
-        });
+            
+        })
+        
+        )
+           
+        
         navigate("/profile")
     } catch (error) {
         dispatch({
@@ -45,11 +50,13 @@ export const logout=()=>{
 //get auth user
 export const userCurrent=()=>async(dispatch)=>{
     const config={
-        authorization:localStorage.getItem('token')
+       headers: {authorization:sessionStorage.getItem('token')}
     }
 try {
-    const res=await axios.get('/api/current',config)
+    const res=await axios.get("http://localhost:5000/current",config).then((res)=>
     dispatch({type:CURRENT,payload:res.data})
+    )
+    
 } catch (error) {
     dispatch({
         type:FAIL,

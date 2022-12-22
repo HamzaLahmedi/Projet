@@ -1,10 +1,19 @@
 import React from 'react'
 import Button from 'react-bootstrap/esm/Button';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import EditProfile from '../components/EditProfile';
+import { deleteProfile } from '../redux/actions/contactActions';
 
 function Profile() {
   
-  const {loading,user}=useSelector(state=>state.authReducer)
+  const user=useSelector(state=>state.authReducer.user)
+  console.log(user)
+
+const dispatch=useDispatch()
+const handleDelete=()=>{
+  dispatch(deleteProfile(user._id))
+}
+
   return (
     
     
@@ -101,8 +110,8 @@ function Profile() {
                 </ul>
                 
               </div>
-              <Button>Edit</Button>
-                <Button>Delete</Button>
+              <EditProfile user={user} />
+                <Button variant='danger' onClick={handleDelete}>Delete</Button>
             </div>
           </div>
         </div>

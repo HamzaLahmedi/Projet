@@ -5,11 +5,11 @@ import Load from '../components/Load'
 
 function PrivateRoute({children}) {
     const {auth,loading}=useSelector(state=>state.authReducer)
-    const token=localStorage.getItem('token')
+    const token=sessionStorage.getItem('token')
   return (
     <>
 {
-loading ? <Load  type="spokes" color="black"/> : auth &&token ? children : <Navigate to='/login' /> 
+loading ? <Load  type="spokes" color="black"/> : token ? children : <Navigate to='/login' /> 
 
 
 

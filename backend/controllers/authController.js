@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 exports.signUp=async(req,res)=>{
     console.log(req.body)
     
-    const {userName,email,password,description,role}=req.body
+    const {userName,email,password,description,role,age,phone}=req.body
     try {
         //check user
         const checkuser= await User.findOne({email})
@@ -13,7 +13,7 @@ exports.signUp=async(req,res)=>{
             return res.status(401).json({errors:[{msg:"user already exists"}]})
         }
         const user= new User({
-            userName,email,password,description,role
+            userName,email,password,description,role,age,phone
         })
         user.password=await bcrypt.hash(password,10)
         await user.save()
@@ -88,7 +88,7 @@ exports.allUsers=async(req,res)=>{
     exports.updateUser=async(req,res)=>{
         const {id}=req.params
         try {
-            const updateUser=await User.findByIdAndUpdate(id,{$set:{...req.body}},{new:true});
+            const updateUser=await User.findByIdAndUpdate(id,{$set:{...req.body}},{ new: true });
             res.status(200).send({msg:"user updated",updateUser})
         } catch (error) {
             res.status(500).send("server error");

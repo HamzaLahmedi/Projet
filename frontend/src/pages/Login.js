@@ -27,14 +27,14 @@ const handleSubmit=(e)=>{
   <div id="login-form-wrap">
   <Link to='/login'>Login</Link>
   
-  <form id="login-form" onSubmit={handleSubmit}>
+  <form id="login-form" >
     <p>
     <input type="text" id="username" name="email" placeholder="Email Address" required  onChange={handleChange}/><i className="validation"><span></span><span></span></i>
     </p>
     <p>
     <input type="password" id="email" name="password" placeholder="password" required  onChange={handleChange}/><i className="validation"><span></span><span></span></i>
     </p>
-    <Button type='submit' >LOGIN</Button>
+    <Button onClick={handleSubmit} >LOGIN</Button>
   </form>
   <div id="create-account-wrap">
     <p>Not a member? <Link to='/register'> Create Account </Link></p>

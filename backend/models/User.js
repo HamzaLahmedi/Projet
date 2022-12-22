@@ -29,6 +29,7 @@ const userschema= new mongoose.Schema({
 
     role:{
         type:String,
+        
         required:true
     },
     password:{
