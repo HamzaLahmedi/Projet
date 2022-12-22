@@ -49,11 +49,17 @@ const handleDelete=()=>{
                     <p className="m-b-10 f-w-600">Email</p>
                     <h6 className="text-muted f-w-400">{user?.email}</h6>
                   </div>
+                  <div className="col-sm-6">
+                    <p className="m-b-10 f-w-600">Age</p>
+                    <h6 className="text-muted f-w-400">{user?.age}</h6>
+                  </div>
+                  <div className="col-sm-6">
+                    <p className="m-b-10 f-w-600">Phone Number</p>
+                    <h6 className="text-muted f-w-400">{user?.phone}</h6>
+                  </div>
                   
                 </div>
-                <h6 className="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">
-                  Projects
-                </h6>
+                
                 <div className="row">
                   
                   <div className="col-sm-6">
