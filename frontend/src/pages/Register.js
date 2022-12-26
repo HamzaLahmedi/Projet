@@ -75,6 +75,7 @@ const handleSubmit=(e)=>{
         <Form.Label> select menu</Form.Label>
         <Form.Select onChange={handleChange} name="role">
         <option>select role</option>
+        
           <option>musician</option>
           <option>band</option>
         </Form.Select>

@@ -1,4 +1,6 @@
 
+import { deleteProfile } from "../redux/actions/contactActions"
+
 
 function ContactCard({contact}) {
   return (
@@ -107,6 +109,9 @@ function ContactCard({contact}) {
                 </li>
               </ul>
             </div>
+            
+            
+
           </div>
         </div>
       </div>
